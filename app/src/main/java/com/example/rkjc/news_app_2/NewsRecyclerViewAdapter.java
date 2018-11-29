@@ -2,6 +2,7 @@ package com.example.rkjc.news_app_2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,10 +40,11 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     @Override
     public void onBindViewHolder(NewsViewHolder holder, int position) {
         if(mAllNewsItems != null) {
-            NewsItem currentNewsItem = mAllNewsItems.get(position);
-            holder.title.setText("Title: " + currentNewsItem.title);
-            holder.description.setText("Description: " + currentNewsItem.description);
-            holder.date.setText("Date: " + currentNewsItem.publishedAt);
+            NewsItem currentNewsObj = mAllNewsItems.get(position);
+            holder.title.setText(currentNewsObj.title);
+            holder.description.setText(currentNewsObj.publishedAt + ". " + currentNewsObj.description);
+            Picasso.get().load(currentNewsObj.getUrlToImageFromJSON()).into(holder.image);
+//            holder.date.setText("Date: " + currentNewsObj.publishedAt);
         }
         else{
             holder.title.setText("Title: No title");
@@ -52,12 +57,14 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         private TextView title;
         private TextView description;
         private TextView date;
+        private ImageView image;
 
         private NewsViewHolder(View itemView) {
             super(itemView);
             title =  itemView.findViewById(R.id.title_view);
             description = itemView.findViewById(R.id.desc_view);
-            date = itemView.findViewById(R.id.date_view);
+//            date = itemView.findViewById(R.id.date_view);
+            image = itemView.findViewById(R.id.image_view);
             itemView.setOnClickListener(this);
         }
 

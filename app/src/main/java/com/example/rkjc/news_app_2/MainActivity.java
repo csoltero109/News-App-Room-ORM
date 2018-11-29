@@ -1,6 +1,9 @@
 package com.example.rkjc.news_app_2;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.arch.lifecycle.Observer;
+import android.content.ComponentName;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
@@ -13,6 +16,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ProgressBar;
