@@ -10,10 +10,10 @@ public class JobServiceSync extends JobService {
 
     @Override
     public boolean onStartJob(JobParameters job) {
-        NewsItemRepository n = new NewsItemRepository(getApplication());
-        n.databaseSyncSetter();
+//        NewsItemRepository n = new NewsItemRepository(getApplication());
+        new NewsItemRepository(getApplication()).databaseSyncSetter();
         Log.e("Sync","Working Properly");
-        Toast.makeText(getApplicationContext(),"Syncing", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),"Syncing", Toast.LENGTH_SHORT).show();
         return true;
     }
 
