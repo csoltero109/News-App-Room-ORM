@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setUpNewsItemList(newsItems);
             }
         });
+        ScheduleUtilities.scheduleRefresh(this);
     }
 
 
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater mMenuInflater = getMenuInflater();
         mMenuInflater.inflate(R.menu.get_news,menu);
-        Toast.makeText(getApplicationContext(),"Menu created",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),"Menu created",Toast.LENGTH_SHORT).show();
         return true;
     }
 
