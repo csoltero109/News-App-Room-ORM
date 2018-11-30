@@ -17,8 +17,6 @@ import java.util.concurrent.TimeUnit;
 public class ScheduleUtilities {
     private static final String NEWS_JOB_TAG = "News Sync Tag";
     private static boolean sInitialized;
-
-
     synchronized public static void scheduleRefresh(@NonNull final Context context){
         if(sInitialized) return;
 
